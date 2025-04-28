@@ -1,0 +1,16 @@
+body::-webkit-scrollbar{
+    display: none;
+}
+.filter-item {
+    padding: 8px 15px;
+    margin: 5px;
+    transition: 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+  
+  .filter-item:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
+  }
+  

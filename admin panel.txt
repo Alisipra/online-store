@@ -1,0 +1,24 @@
+Backend API Endpoints
+Products:
+
+POST /admin/products → Add new product
+
+GET /admin/products → Fetch all products
+
+PUT /admin/products/:id → Update product
+
+DELETE /admin/products/:id → Delete product
+
+Users:
+
+GET /admin/users → Fetch all users
+
+DELETE /admin/users/:id → Remove user
+
+PUT /admin/users/:id → Update user role
+
+Orders:
+
+GET /admin/orders → Fetch all orders
+
+PUT /admin/orders/:id → Update order status
