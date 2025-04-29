@@ -22,11 +22,27 @@ app.use(bodyparser.json());
 //     credentials: true, 
 //   }));
 
-app.use(cors({
-  origin: 'https://online-store-c2yz-hnd65mo0z-alisipras-projects.vercel.app',
-  credentials: true // if you're using cookies/auth
-}));
+const allowedOrigins = [
+  'https://online-store-c2yz.vercel.app',
+  'https://online-store-c2yz-hnd65mo0z-alisipras-projects.vercel.app'
+];
+// app.use(cors({
+//   origin: 'https://online-store-c2yz-hnd65mo0z-alisipras-projects.vercel.app',
+//   'https://online-store-c2yz.vercel.app'
+  
+//   credentials: true // if you're using cookies/auth
+// }));
 ///home route
+app.use(cors({
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
+}));
 app.get("/",(req,res)=>{
   res.send("server is up...")
 })
