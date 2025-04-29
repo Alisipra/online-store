@@ -21,6 +21,11 @@ app.use(cors({
     credentials: true, 
   }));
 
+///home route
+app.get("/",(req,res)=>{
+  res.send("server is up...")
+})
+
   app.use("/api/stripe", stripeRoutes);
 ///user router
 app.use("/api/user",userRouter)
