@@ -16,7 +16,7 @@ connectDb();
 app.use(bodyparser.json());
 ////cors policy adding
 app.use(cors({
-    origin: ["https://online-store-gamma-ashy.vercel.app/"],
+    origin: ["https://online-store-c2yz.vercel.app/"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true, 
   }));
