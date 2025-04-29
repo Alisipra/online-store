@@ -35,7 +35,8 @@ const Settings = () => {
 const handleLogout =async()=>{
   localStorage.removeItem("admintoken")
   setIsAdminAuthenticated(false);  
-  navigate("/admin/login");
+  navigate("/", { replace: true }); // Ensure it replaces current history entry
+  window.location.reload();
 }
   const handleChangePassword = async () => {
     try {

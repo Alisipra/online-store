@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Table } from "@mui/material";
 import axios from "axios";
+import appContext from "../context/AppContext";
 
 export default function AdminOrders() {
   const [orders, setOrders] = useState([]);
   const [productsData, setProductsData] = useState({});
-
+  const {url}=useContext(appContext)
   useEffect(() => {
     const fetchOrders = async () => {
       try {
         // Fetch orders
-        const orderResponse = await axios.get('http://localhost:2000/api/order/');
+        const orderResponse = await axios.get(`${url}/order/`);
         const orders = orderResponse.data.orders;
         // console.log('Fetched Orders:', orders);
 
@@ -32,7 +33,7 @@ export default function AdminOrders() {
         const productsPromises = uniqueProductIds.map(async (productId) => {
           try {
             console.log(`Fetching Product for ID: ${productId}`);
-            const productResponse = await axios.get(`http://localhost:2000/api/product/${productId}`);
+            const productResponse = await axios.get(`${url}/product/${productId}`);
             if (productResponse.data.product) {
               const product = productResponse.data.product;
               // console.log(`Fetched Product ${productId}:`, product);

@@ -1,12 +1,14 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import RelatedProduct from './RelatedProduct';
+import appContext from '../../context/AppContext';
 
 export default function ProductDetails() {
     const [SpecificProduct, setSpecificProduct] = useState([]);
+    const {url}=useContext(appContext)
     const {id}=useParams();
-    const url="http://localhost:2000/api"
+    
     useEffect(() => {
     // fetching products from database
     const fetchProduct= async()  =>{

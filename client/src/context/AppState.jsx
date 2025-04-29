@@ -5,7 +5,7 @@ import { Bounce, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AppState = ({ children }) => {
-  const url = "http://localhost:2000/api";
+  const url = "https://online-store-gamma-ashy.vercel.app/api";
   const [product, setProduct] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useState([]);

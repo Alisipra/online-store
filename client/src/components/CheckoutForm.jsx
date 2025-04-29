@@ -7,6 +7,7 @@ const CheckoutForm = ({ amount, setShowPayment, cart, userId }) => {
     const [error, setError] = useState(null);
     const [isProcessing, setIsProcessing] = useState(false);
         const {clearCart}=useContext(appContext)
+    const {url}=useContext(appContext);
     const handleSubmit = async (event) => {
         event.preventDefault();
         setError(null);
@@ -27,7 +28,7 @@ const CheckoutForm = ({ amount, setShowPayment, cart, userId }) => {
 
         try {
             // 1. Create Payment Intent
-            const res = await fetch("http://localhost:2000/api/stripe/create-payment-intent", {
+            const res = await fetch(`${url}/stripe/create-payment-intent`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ amount, currency: "usd" }),
@@ -57,7 +58,7 @@ const CheckoutForm = ({ amount, setShowPayment, cart, userId }) => {
                 status: "Pending"
             };
 
-            await fetch("http://localhost:2000/api/order/createorder", {
+            await fetch(`${url}/order/createorder`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(orderData),

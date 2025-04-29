@@ -3,7 +3,7 @@ import appContext from "../../context/AppContext";
 import axios from "axios";
 
 export default function Profile() {
-  const { user } = useContext(appContext);
+  const { user,url } = useContext(appContext);
   const [orders, setOrders] = useState([]);
   useEffect(() => {
     const fetchOrders = async () => {
@@ -11,7 +11,7 @@ export default function Profile() {
 
       try {
         const response = await axios.get(
-          `http://localhost:2000/api/order/${user._id}`
+          `${url}/order/${user._id}`
         );
         console.log("Order history:", response.data);
 

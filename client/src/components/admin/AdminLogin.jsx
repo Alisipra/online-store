@@ -9,11 +9,11 @@ const AdminLogin = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const { setIsAdminAuthenticated } = useContext(appContext);
+  const { setIsAdminAuthenticated,url } = useContext(appContext);
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:2000/api/admin/login', {
+      const res = await axios.post(`${url}/admin/login`, {
         email,
         password,
       });
