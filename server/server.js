@@ -16,7 +16,7 @@ connectDb();
 app.use(bodyparser.json());
 ////cors policy adding
 app.use(cors({
-    origin: true,
+    origin: ["https://easytopurchase.netlify.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true, 
   }));
