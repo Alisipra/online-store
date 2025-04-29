@@ -15,12 +15,17 @@ connectDb();
 ////middlewares
 app.use(bodyparser.json());
 ////cors policy adding
-app.use(cors({
-    origin: ["https://online-store-c2yz.vercel.app/"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, 
-  }));
+// app.use(cors({
 
+//     origin: ["https://online-store-c2yz.vercel.app/"],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true, 
+//   }));
+
+app.use(cors({
+  origin: 'https://online-store-c2yz-hnd65mo0z-alisipras-projects.vercel.app',
+  credentials: true // if you're using cookies/auth
+}));
 ///home route
 app.get("/",(req,res)=>{
   res.send("server is up...")
