@@ -16,7 +16,7 @@ connectDb();
 app.use(bodyparser.json());
 ////cors policy adding
 app.use(cors({
-    origin: ["https://easytopurchase.netlify.app"],
+    origin: ["https://online-store-gamma-ashy.vercel.app/"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true, 
   }));
